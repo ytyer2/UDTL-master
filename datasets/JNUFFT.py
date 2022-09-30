@@ -10,9 +10,9 @@ from tqdm import tqdm
 signal_size = 1024
 
 
-#Three working conditions
-dataname= {0:["ib600_2.csv","n600_3_2.csv","ob600_2.csv","tb600_2.csv"],
-           1:["ib800_2.csv","n800_3_2.csv","ob800_2.csv","tb800_2.csv"],
+#Three working conditions 进行三种分类,每个类别中都有[内圈，外圈，滚动体，球]四种故障类型
+dataname= {0:["ib600_2.csv","n600_3_2.csv","ob600_2.csv","tb600_2.csv"],  # 源域
+           1:["ib800_2.csv","n800_3_2.csv","ob800_2.csv","tb800_2.csv"],  # 目标域
            2:["ib1000_2.csv","n1000_3_2.csv","ob1000_2.csv","tb1000_2.csv"]}
 
 label = [i for i in range(0,4)]
@@ -28,17 +28,18 @@ def get_files(root, N):
     lab = []
     for k in range(len(N)):
         for i in tqdm(range(len(dataname[N[k]]))):
-            path1 = os.path.join('/tmp', root, dataname[N[k]][i])
+            path1 = os.path.join('/tmp', root, dataname[N[k]][i])  # 读取第dataname字典中的0
             data1, lab1 = data_load(path1, label=label[i])
             data += data1
             lab += lab1
-
+    # 将所有的数据都处理完，并且都存储到一起去.[处理的是dataname[0]]
     return [data, lab]
 
 def data_load(filename,label):
     '''
     This function is mainly used to generate test data and training data.
     filename:Data location
+    将给定路径的一条数据切割成多组数据，每组数据对于一个标签
     '''
     fl = np.loadtxt(filename)
     data=[] 

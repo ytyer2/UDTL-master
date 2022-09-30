@@ -1,0 +1,74 @@
+09-30 14:17:42 model_name: cnn_features_1d
+09-30 14:17:42 data_name: PHMFFT
+09-30 14:17:42 data_dir: D:\Data\PHM2009gearbox\PHM_Society_2009_Competition_Expanded_txt
+09-30 14:17:42 transfer_task: [[0], [3]]
+09-30 14:17:42 normlizetype: mean-std
+09-30 14:17:42 cuda_device: 0
+09-30 14:17:42 checkpoint_dir: ./checkpoint
+09-30 14:17:42 pretrained: False
+09-30 14:17:42 batch_size: 64
+09-30 14:17:42 num_workers: 0
+09-30 14:17:42 bottleneck: True
+09-30 14:17:42 bottleneck_num: 256
+09-30 14:17:42 last_batch: False
+09-30 14:17:42 distance_metric: False
+09-30 14:17:42 distance_loss: MK-MMD
+09-30 14:17:42 trade_off_distance: Step
+09-30 14:17:42 lam_distance: 1
+09-30 14:17:42 domain_adversarial: True
+09-30 14:17:42 adversarial_loss: CDA+E
+09-30 14:17:42 hidden_size: 1024
+09-30 14:17:42 trade_off_adversarial: Step
+09-30 14:17:42 lam_adversarial: 1
+09-30 14:17:42 opt: adam
+09-30 14:17:42 lr: 0.001
+09-30 14:17:42 momentum: 0.9
+09-30 14:17:42 weight_decay: 1e-05
+09-30 14:17:42 lr_scheduler: step
+09-30 14:17:42 gamma: 0.1
+09-30 14:17:42 steps: 150, 250
+09-30 14:17:42 middle_epoch: 50
+09-30 14:17:42 max_epoch: 300
+09-30 14:17:42 print_step: 50
+09-30 14:17:42 using 1 gpus
+09-30 14:17:51 -----Epoch 0/299-----
+09-30 14:17:51 current lr: [0.001, 0.001, 0.001, 0.001]
+09-30 14:17:57 Epoch: 0 [0/1248], Train Loss: 1.9462 Train Acc: 0.1562,10.6 examples/sec 6.06 sec/batch
+09-30 14:17:57 Epoch: 0 source_train-Loss: 1.8091 source_train-Acc: 0.2171, Cost 6.4 sec
+09-30 14:17:57 Epoch: 0 source_val-Loss: 1.7869 source_val-Acc: 0.1667, Cost 0.0 sec
+09-30 14:17:57 Epoch: 0 target_val-Loss: 1.7809 target_val-Acc: 0.2372, Cost 0.0 sec
+09-30 14:17:57 -----Epoch 1/299-----
+09-30 14:17:57 current lr: [0.001, 0.001, 0.001, 0.001]
+09-30 14:17:57 Epoch: 1 source_train-Loss: 1.5677 source_train-Acc: 0.3606, Cost 0.3 sec
+09-30 14:17:58 Epoch: 1 source_val-Loss: 1.6302 source_val-Acc: 0.2885, Cost 0.0 sec
+09-30 14:17:58 Epoch: 1 target_val-Loss: 1.5784 target_val-Acc: 0.3429, Cost 0.0 sec
+09-30 14:17:58 -----Epoch 2/299-----
+09-30 14:17:58 current lr: [0.001, 0.001, 0.001, 0.001]
+09-30 14:17:58 Epoch: 2 [640/1248], Train Loss: 1.5935 Train Acc: 0.3329,3251.5 examples/sec 0.02 sec/batch
+09-30 14:17:58 Epoch: 2 source_train-Loss: 1.2134 source_train-Acc: 0.5152, Cost 0.3 sec
+09-30 14:17:58 Epoch: 2 source_val-Loss: 1.1115 source_val-Acc: 0.4840, Cost 0.0 sec
+09-30 14:17:58 Epoch: 2 target_val-Loss: 2.2445 target_val-Acc: 0.1987, Cost 0.0 sec
+09-30 14:17:58 -----Epoch 3/299-----
+09-30 14:17:58 current lr: [0.001, 0.001, 0.001, 0.001]
+09-30 14:17:58 Epoch: 3 source_train-Loss: 0.8281 source_train-Acc: 0.6771, Cost 0.3 sec
+09-30 14:17:58 Epoch: 3 source_val-Loss: 0.7940 source_val-Acc: 0.6891, Cost 0.0 sec
+09-30 14:17:58 Epoch: 3 target_val-Loss: 3.2565 target_val-Acc: 0.1987, Cost 0.0 sec
+09-30 14:17:58 -----Epoch 4/299-----
+09-30 14:17:58 current lr: [0.001, 0.001, 0.001, 0.001]
+09-30 14:17:59 Epoch: 4 source_train-Loss: 0.6361 source_train-Acc: 0.7580, Cost 0.3 sec
+09-30 14:17:59 Epoch: 4 source_val-Loss: 0.7412 source_val-Acc: 0.7212, Cost 0.0 sec
+09-30 14:17:59 Epoch: 4 target_val-Loss: 3.1392 target_val-Acc: 0.2276, Cost 0.0 sec
+09-30 14:17:59 -----Epoch 5/299-----
+09-30 14:17:59 current lr: [0.001, 0.001, 0.001, 0.001]
+09-30 14:17:59 Epoch: 5 [0/1248], Train Loss: 0.7940 Train Acc: 0.6943,3120.7 examples/sec 0.02 sec/batch
+09-30 14:17:59 Epoch: 5 source_train-Loss: 0.5317 source_train-Acc: 0.7925, Cost 0.4 sec
+09-30 14:17:59 Epoch: 5 source_val-Loss: 0.6082 source_val-Acc: 0.7660, Cost 0.0 sec
+09-30 14:17:59 Epoch: 5 target_val-Loss: 2.6555 target_val-Acc: 0.2949, Cost 0.0 sec
+09-30 14:17:59 -----Epoch 6/299-----
+09-30 14:17:59 current lr: [0.001, 0.001, 0.001, 0.001]
+09-30 14:17:59 Epoch: 6 source_train-Loss: 0.5349 source_train-Acc: 0.8029, Cost 0.3 sec
+09-30 14:17:59 Epoch: 6 source_val-Loss: 0.9804 source_val-Acc: 0.6122, Cost 0.0 sec
+09-30 14:17:59 Epoch: 6 target_val-Loss: 3.3707 target_val-Acc: 0.1987, Cost 0.0 sec
+09-30 14:17:59 -----Epoch 7/299-----
+09-30 14:17:59 current lr: [0.001, 0.001, 0.001, 0.001]
+09-30 14:18:00 Epoch: 7 [640/1248], Train Loss: 0.5267 Train Acc: 0.8017,3341.7 examples/sec 0.02 sec/batch

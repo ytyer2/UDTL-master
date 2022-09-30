@@ -10,7 +10,7 @@ class CNN(nn.Module):
         super(CNN, self).__init__()
         if pretrained == True:
             warnings.warn("Pretrained model is not available")
-
+        # 1,40
         self.layer1 = nn.Sequential(
             nn.Conv1d(in_channel, 16, kernel_size=15),  # 16, 26 ,26
             nn.BatchNorm1d(16),
@@ -49,14 +49,14 @@ class CNN(nn.Module):
         x = self.layer5(x)
 
         return x
-
+    # 注意这里的处理完后的结果是有256种情况.后续需要根据具体的情况来判定最终的类别
 
 # convnet without the last layer
 class cnn_features(nn.Module):
     def __init__(self, pretrained=False):
         super(cnn_features, self).__init__()
         self.model_cnn = CNN(pretrained)
-        self.__in_features = 256
+        self.__in_features = 256  #告诉我们输出的类别数量
 
     def forward(self, x):
         x = self.model_cnn(x)

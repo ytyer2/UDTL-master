@@ -1,0 +1,51 @@
+09-30 14:16:44 model_name: CNN_1d
+09-30 14:16:44 data_name: JNU
+09-30 14:16:44 data_dir: D:/Data\江南大学数据\数据
+09-30 14:16:44 transfer_task: [[0], [1]]
+09-30 14:16:44 normlizetype: mean-std
+09-30 14:16:44 adabn: True
+09-30 14:16:44 eval_all: False
+09-30 14:16:44 adabn_epochs: 3
+09-30 14:16:44 cuda_device: 0
+09-30 14:16:44 checkpoint_dir: ./checkpoint_adabn
+09-30 14:16:44 pretrained: False
+09-30 14:16:44 batch_size: 64
+09-30 14:16:44 num_workers: 0
+09-30 14:16:44 opt: adam
+09-30 14:16:44 lr: 0.001
+09-30 14:16:44 momentum: 0.9
+09-30 14:16:44 weight_decay: 1e-05
+09-30 14:16:44 lr_scheduler: step
+09-30 14:16:44 gamma: 0.1
+09-30 14:16:44 steps: 150, 250
+09-30 14:16:44 max_epoch: 300
+09-30 14:16:44 print_step: 600
+09-30 14:16:44 using 1 gpus
+09-30 14:17:00 -----Epoch 0/299-----
+09-30 14:17:00 current lr: [0.001]
+09-30 14:17:14 Epoch: 0 [0/2344], Train Loss: 1.6645 Train Acc: 0.2656,4.4 examples/sec 14.44 sec/batch
+09-30 14:17:15 Epoch: 0 source_train-Loss: 1.0555 source_train-Acc: 0.6067, Cost 15.2 sec
+09-30 14:17:15 Epoch: 0 source_val-Loss: 0.7928 source_val-Acc: 0.6843, Cost 0.1 sec
+09-30 14:17:17 Epoch: 0 target_val-Loss: 0.7400 target_val-Acc: 0.7027, Cost 2.2 sec
+09-30 14:17:17 save best model epoch 0, acc 0.7027
+09-30 14:17:17 -----Epoch 1/299-----
+09-30 14:17:17 current lr: [0.001]
+09-30 14:17:18 Epoch: 1 source_train-Loss: 0.7246 source_train-Acc: 0.7146, Cost 0.7 sec
+09-30 14:17:18 Epoch: 1 source_val-Loss: 0.5694 source_val-Acc: 0.7935, Cost 0.1 sec
+09-30 14:17:20 Epoch: 1 target_val-Loss: 0.4474 target_val-Acc: 0.7942, Cost 2.0 sec
+09-30 14:17:20 save best model epoch 1, acc 0.7942
+09-30 14:17:20 -----Epoch 2/299-----
+09-30 14:17:20 current lr: [0.001]
+09-30 14:17:21 Epoch: 2 source_train-Loss: 0.5097 source_train-Acc: 0.7892, Cost 0.5 sec
+09-30 14:17:21 Epoch: 2 source_val-Loss: 0.4740 source_val-Acc: 0.8055, Cost 0.0 sec
+09-30 14:17:23 Epoch: 2 target_val-Loss: 0.6713 target_val-Acc: 0.7495, Cost 2.4 sec
+09-30 14:17:23 -----Epoch 3/299-----
+09-30 14:17:23 current lr: [0.001]
+09-30 14:17:24 Epoch: 3 source_train-Loss: 0.4003 source_train-Acc: 0.8259, Cost 1.1 sec
+09-30 14:17:24 Epoch: 3 source_val-Loss: 0.5111 source_val-Acc: 0.7594, Cost 0.1 sec
+09-30 14:17:28 Epoch: 3 target_val-Loss: 0.3357 target_val-Acc: 0.8382, Cost 3.1 sec
+09-30 14:17:28 save best model epoch 3, acc 0.8382
+09-30 14:17:28 -----Epoch 4/299-----
+09-30 14:17:28 current lr: [0.001]
+09-30 14:17:28 Epoch: 4 source_train-Loss: 0.3250 source_train-Acc: 0.8558, Cost 0.6 sec
+09-30 14:17:28 Epoch: 4 source_val-Loss: 0.6995 source_val-Acc: 0.6792, Cost 0.1 sec

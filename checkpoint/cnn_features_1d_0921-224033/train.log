@@ -1,0 +1,39 @@
+09-21 22:40:33 model_name: cnn_features_1d
+09-21 22:40:33 data_name: PHMFFT
+09-21 22:40:33 data_dir: D:\Data\PHM2009gearbox\PHM_Society_2009_Competition_Expanded_txt
+09-21 22:40:33 transfer_task: [[0], [3]]
+09-21 22:40:33 normlizetype: mean-std
+09-21 22:40:33 cuda_device: 0
+09-21 22:40:33 checkpoint_dir: ./checkpoint
+09-21 22:40:33 pretrained: False
+09-21 22:40:33 batch_size: 64
+09-21 22:40:33 num_workers: 0
+09-21 22:40:33 bottleneck: True
+09-21 22:40:33 bottleneck_num: 256
+09-21 22:40:33 last_batch: False
+09-21 22:40:33 distance_metric: False
+09-21 22:40:33 distance_loss: MK-MMD
+09-21 22:40:33 trade_off_distance: Step
+09-21 22:40:33 lam_distance: 1
+09-21 22:40:33 domain_adversarial: True
+09-21 22:40:33 adversarial_loss: CDA+E
+09-21 22:40:33 hidden_size: 1024
+09-21 22:40:33 trade_off_adversarial: Step
+09-21 22:40:33 lam_adversarial: 1
+09-21 22:40:33 opt: adam
+09-21 22:40:33 lr: 0.001
+09-21 22:40:33 momentum: 0.9
+09-21 22:40:33 weight_decay: 1e-05
+09-21 22:40:33 lr_scheduler: step
+09-21 22:40:33 gamma: 0.1
+09-21 22:40:33 steps: 150, 250
+09-21 22:40:33 middle_epoch: 50
+09-21 22:40:33 max_epoch: 1
+09-21 22:40:33 print_step: 50
+09-21 22:40:33 using 1 gpus
+09-21 22:40:41 -----Epoch 0/0-----
+09-21 22:40:41 current lr: [0.001, 0.001, 0.001, 0.001]
+09-21 22:40:45 Epoch: 0 [0/1248], Train Loss: 2.0418 Train Acc: 0.1719,17.4 examples/sec 3.68 sec/batch
+09-21 22:40:45 Epoch: 0 source_train-Loss: 1.8297 source_train-Acc: 0.2027, Cost 3.8 sec
+09-21 22:40:45 Epoch: 0 source_val-Loss: 1.7880 source_val-Acc: 0.1667, Cost 0.0 sec
+09-21 22:40:45 Epoch: 0 target_val-Loss: 1.7895 target_val-Acc: 0.1731, Cost 0.0 sec

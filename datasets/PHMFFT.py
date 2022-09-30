@@ -31,6 +31,8 @@ def get_files(root, N):
     '''
     This function is used to generate the final training set and test set.
     root:The location of the data set
+    这个方法是用来生成源域和目标域
+    遍历的了整个Case1文件
     '''
     data = []
     lab = []
@@ -39,7 +41,7 @@ def get_files(root, N):
         for i in tqdm(range(len(Case1))):
             root1 = os.path.join("/tmp",root,Case1[i],Case1[i]+"_" + state1)
             datalist1 = os.listdir(root1)
-            path1=os.path.join('/tmp',root1,datalist1[0])
+            path1=os.path.join('/tmp',root1,datalist1[0])   # 每文件夹的第一个项目(当然了，每个文件夹也就只有一个)
             data1, lab1 = data_load(path1,label=label1[i])
             data += data1
             lab  += lab1
@@ -49,22 +51,25 @@ def data_load(filename,label):
     '''
     This function is mainly used to generate test data and training data.
     filename:Data location
+    该函数主要用于生成测试数据和训练数据。
+    将一个文件夹的.txt文件中的数据进行分割，且对于标签。将一个属于一种标签的类型的数据切割，并且实现转换为array()的存储形式
+    文件名:数据位置
     '''
-    fl = np.loadtxt(filename,usecols=0)
-    fl = fl.reshape(-1,)
+    fl = np.loadtxt(filename,usecols=0) # 使用numpy加载数据
+    fl = fl.reshape(-1,)    # 将所有的数据展平[0,1,2]这种
     data=[] 
     lab=[]
     start,end=0,signal_size
     while end<=fl.shape[0]:
         x = fl[start:end]
-        x = np.fft.fft(x)
-        x = np.abs(x) / len(x)
-        x = x[range(int(x.shape[0] / 2))]
+        x = np.fft.fft(x)   # 快速傅里叶变换
+        x = np.abs(x) / len(x)  # 取绝对值归一化
+        x = x[range(int(x.shape[0] / 2))]  # 提取前一半的
         x = x.reshape(-1, 1)
-        data.append(x)
+        data.append(x)  #数据量一直增加，以array()形式存储，每一个array()对应一个标签
         lab.append(label)
-        start +=signal_size
-        end +=signal_size
+        start += signal_size
+        end += signal_size
 
     return data, lab
 
@@ -75,8 +80,8 @@ class PHMFFT(object):
 
     def __init__(self, data_dir, transfer_task, normlizetype="0-1"):
         self.data_dir = data_dir
-        self.source_N = transfer_task[0]
-        self.target_N = transfer_task[1]
+        self.source_N = transfer_task[0]    # 0
+        self.target_N = transfer_task[1]    # 3
         self.normlizetype = normlizetype
         self.data_transforms = {
             'train': Compose([

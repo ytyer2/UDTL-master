@@ -44,7 +44,7 @@ class train_utils(object):
             logging.info('using {} cpu'.format(self.device_count))
 
         # Load the datasets
-        Dataset = getattr(datasets, args.data_name)
+        Dataset = getattr(datasets, args.data_name)  # 实例化JUU
         self.datasets = {}
 
 
@@ -149,13 +149,13 @@ class train_utils(object):
                     if phase=='source_val':
                        self.model.eval()
                 else:
-                    if args.adabn:
+                    if args.adabn:  # 使用adabn算法，使得BN层的参数适应目标域的数据。
                         torch.save(self.model.module.state_dict() if self.device_count > 1 else self.model.state_dict(),
                                    os.path.join(self.save_dir, 'model_temp.pth'))
                         self.model_eval.load_state_dict(torch.load(os.path.join(self.save_dir, 'model_temp.pth')))
                         self.model_eval.train()
                         self.model_eval.apply(apply_dropout)
-                        with torch.set_grad_enabled(False):
+                        with torch.set_grad_enabled(False):  # 关闭梯度
 
                             for i in range(args.adabn_epochs):
                                 if args.eval_all:
@@ -163,7 +163,7 @@ class train_utils(object):
                                         if batch_idx == 0:
                                             inputs_all = inputs
                                         else:
-                                            inputs_all = torch.cat((inputs_all, inputs), dim=0)
+                                            inputs_all = torch.cat((inputs_all, inputs), dim=0)   # 将所有的数据按照dim = 0 拼接
                                     inputs_all = inputs_all.to(self.device)
                                     _ = self.model_eval(inputs_all)
                                 else:
@@ -171,7 +171,7 @@ class train_utils(object):
                                         for batch_idx, (inputs, _) in enumerate(self.dataloaders['target_val']):
                                             inputs = inputs.to(self.device)
                                             _ = self.model_eval(inputs)
-                        self.model_eval.eval()
+                        self.model_eval.eval()   # 更改BN层的中gama,baita.以适应测试集中的参数
                     else:
                         self.model.eval()
 
@@ -185,11 +185,11 @@ class train_utils(object):
                     # Do the learning process, in val, we do not care about the gradient for relaxing
                     with torch.set_grad_enabled(phase == 'source_train'):
                         # forward
-                        if args.adabn:
+                        if args.adabn:  # True
                             if phase != 'target_val':
                                 logits = self.model(inputs)
                             else:
-                                logits = self.model_eval(inputs)
+                                logits = self.model_eval(inputs)  # 将目标域中的数据放到更新好的模型中去.
                         else:
                             logits = self.model(inputs)
                         loss = self.criterion(logits, labels)
@@ -199,7 +199,7 @@ class train_utils(object):
                         epoch_loss += loss_temp
                         epoch_acc += correct
 
-                        # Calculate the training information
+                        # Calculate the training information  计算训练信息
                         if phase == 'source_train':
                             # backward
                             self.optimizer.zero_grad()
@@ -229,7 +229,7 @@ class train_utils(object):
                             step += 1
 
 
-                # Print the train and val information via each epoch
+                # Print the train and val information via each epoch  通过每个epoch打印出训练和价值信息。
                 epoch_loss = epoch_loss / len(self.dataloaders[phase].dataset)
                 epoch_acc = epoch_acc / len(self.dataloaders[phase].dataset)
                 logging.info('Epoch: {} {}-Loss: {:.4f} {}-Acc: {:.4f}, Cost {:.1f} sec'.format(

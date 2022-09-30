@@ -1,13 +1,16 @@
-import argparse  # 一种通过终端交互的方式
-parser = argparse.ArgumentParser()
-parser.add_argument('-t', '--hight', type=int, default=10, help='这是个高度')
-parser.add_argument('-w', '--weight', type=int, default=12, help='这是宽度')
-arg = parser.parse_args()   # 解析所有参数
-print(arg.hight)
-print(arg.weight)
-import os
-pth = r'D:\Data\PHM2009gearbox\PHM_Society_2009_Competition_Expanded_txt'
-for x in os.listdir(pth):
-    for y in os.listdir(os.path.join(pth, x)):
-        if y.endswith('.zip'):
-            os.remove(os.path.join(pth, x, y))
+# import logging
+# logging.basicConfig(level=logging.DEBUG)
+# # 默认是warning级别，只输出warning级别后的面内容
+# logging.debug('this is a debug')
+# logging.info('this is a info')
+# logging.error('this is a error')
+# logging.warning('this is a warning')
+# logging.critical('this is a critical')
+b = []
+import torch
+a = torch.arange(10)
+# print(a.reshape(-1,1))
+a = a.reshape(-1,1)
+b = b.append(a)
+print(b)
+

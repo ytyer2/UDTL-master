@@ -80,7 +80,6 @@ if __name__ == '__main__':
     # save the args
     for k, v in args.__dict__.items():
         logging.info("{}: {}".format(k, v))
-
     trainer = train_utils(args, save_dir)
     trainer.setup()
     trainer.train()
